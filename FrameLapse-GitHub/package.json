@@ -1,0 +1,83 @@
+{
+  "name": "framelapse",
+  "version": "1.0.0",
+  "description": "Offline Windows screen timelapse recorder",
+  "main": "dist-electron/main.js",
+  "author": "FrameLapse contributors; based on ImagineTheGames/TimeLapser",
+  "license": "GPL-3.0-only",
+  "scripts": {
+    "build": "tsc -p tsconfig.electron.json && tsc -p tsconfig.json && vite build && node scripts/copy-picker.js",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder --win nsis",
+    "test:packaged": "node scripts/run-tests.js"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sharp": "^0.33.2"
+  },
+  "devDependencies": {
+    "@types/fluent-ffmpeg": "^2.1.24",
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react-swc": "^3.11.0",
+    "concurrently": "^8.2.2",
+    "electron": "45.2.1",
+    "electron-builder": "26.18.0",
+    "png-to-ico": "^3.0.1",
+    "source-map": "^0.6.1",
+    "typescript": "^5.9.3",
+    "vite": "^5.0.8",
+    "vite-plugin-electron": "^0.15.4",
+    "vite-plugin-electron-renderer": "^0.14.5",
+    "wait-on": "^7.2.0",
+    "screenshot-desktop": "1.15.4"
+  },
+  "build": {
+    "appId": "local.framelapse.desktop",
+    "productName": "FrameLapse",
+    "directories": {
+      "output": "../FrameLapse-build"
+    },
+    "files": [
+      "dist/**",
+      "dist-electron/**",
+      "public/**",
+      "LICENSE",
+      "NOTICE.md"
+    ],
+    "extraResources": [
+      {
+        "from": "tools",
+        "to": "tools"
+      },
+      {
+        "from": "licenses",
+        "to": "licenses"
+      }
+    ],
+    "asarUnpack": [
+      "node_modules/sharp/**",
+      "node_modules/@img/**"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        "nsis"
+      ],
+      "requestedExecutionLevel": "asInvoker",
+      "signExecutable": false
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowElevation": false,
+      "createDesktopShortcut": true,
+      "shortcutName": "FrameLapse",
+      "runAfterFinish": false,
+      "artifactName": "FrameLapse-Setup-${version}.${ext}"
+    }
+  }
+}

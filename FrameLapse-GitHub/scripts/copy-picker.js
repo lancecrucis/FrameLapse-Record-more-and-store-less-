@@ -1,0 +1,1 @@
+const fs=require('fs');fs.copyFileSync('electron/region-picker.html','dist-electron/region-picker.html');
