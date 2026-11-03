@@ -18,23 +18,30 @@ FrameLapse includes its own local FFmpeg tools. You do not need to install FFmpe
 
 > Windows may display a SmartScreen warning because the installer is currently unsigned. Confirm that it was downloaded from this repository before running it.
 
-## FrameLapse vs. normal screen recording
+## Why FrameLapse instead of a normal screen recorder?
 
-| Comparison | FrameLapse | Normal screen recorder |
+Traditional screen recorders capture every moment as continuous video. FrameLapse captures individual screenshots at a chosen interval and turns them into a timelapse video.
+
+| Feature | FrameLapse | Normal screen recorder |
 |---|---|---|
-| Capture method | Takes screenshots at a selected interval | Records continuous video |
-| Best suited for | Blender, drawing, coding, editing, and long creative workflows | Tutorials, meetings, gameplay, and live demonstrations |
-| Long recordings | Compresses hours of work into a short timelapse | Produces a video close to the original session length |
-| Storage usage | Usually lower | Usually higher |
-| System load | Lower capture frequency can reduce resource usage | Continuously uses CPU, GPU, and disk resources |
-| Final video | Fast progress-style timelapse | Real-time video |
-| Audio | Not recorded | Usually supports system and microphone audio |
-| Pause and resume | Supported | Usually supported |
-| Session recovery | Stores recoverable sessions locally | Depends on the application |
-| Screenshot access | Individual captured frames remain available | Individual frames are not normally stored |
-| MP4 export | Created locally using bundled FFmpeg | Usually created by the recorder |
-| Internet connection | Not required | Depends on the application |
-| Cloud account | Not required | Sometimes required |
-| Telemetry | None | Depends on the application |
-| Automatic uploads | None | May be available or enabled in some applications |
-| Best choice when | You want to show hours of progress quickly | You need real-time motion, narration, or audio |
+| Recording method | Captures screenshots at intervals | Captures continuous video |
+| Best for | Long creative workflows, Blender projects, drawing, coding, and progress videos | Tutorials, meetings, gaming, and real-time demonstrations |
+| Storage usage | Usually much lower during long sessions | Usually grows quickly |
+| Performance impact | Lower capture frequency can reduce system load | Continuous recording can use more CPU, GPU, and disk resources |
+| Final video length | Compresses hours of work into a short timelapse | Usually matches the original recording duration |
+| Privacy | Completely local with no telemetry or uploads | Depends on the recorder |
+| Internet required | No | Depends on the recorder |
+| Session recovery | Recording sessions remain available locally | Depends on the recorder |
+| Audio recording | No | Usually supported |
+| Real-time playback | Not intended for real-time playback | Yes |
+
+### FrameLapse is especially useful for
+
+- Recording hours of Blender modeling without producing an extremely long video
+- Creating short progress videos from long creative sessions
+- Reducing storage use compared with continuous screen recording
+- Capturing work while minimizing interruptions
+- Pausing and resuming a project across multiple sessions
+- Keeping screenshots and finished videos completely local
+
+FrameLapse is a timelapse recorder, not a replacement for every traditional screen recorder. Use a normal screen recorder when you need real-time motion, narration, system audio, or microphone recording.
